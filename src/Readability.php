@@ -195,7 +195,7 @@ class Readability
 
                     // No luck after removing flags, just return the longest text we found during the different loops
                     usort($this->attempts, function ($a, $b) {
-                        return $a['textLength'] < $b['textLength'];
+                        return $a['textLength'] <=> $b['textLength'];
                     });
 
                     // But first check if we actually have something
@@ -617,10 +617,10 @@ class Readability
                 $pathBase = parse_url($url, PHP_URL_SCHEME) . '://' . parse_url($url, PHP_URL_HOST) . $this->dom->baseURI;
             } else {
                 // Otherwise just prepend the base to the actual path
-                $pathBase = parse_url($url, PHP_URL_SCHEME) . '://' . parse_url($url, PHP_URL_HOST) . dirname(parse_url($url, PHP_URL_PATH)) . '/' . rtrim($this->dom->baseURI, '/') . '/';
+                $pathBase = parse_url($url, PHP_URL_SCHEME) . '://' . parse_url($url, PHP_URL_HOST) . dirname((string) parse_url($url, PHP_URL_PATH)) . '/' . rtrim($this->dom->baseURI, '/') . '/';
             }
         } else {
-            $pathBase = parse_url($url, PHP_URL_SCHEME) . '://' . parse_url($url, PHP_URL_HOST) . dirname(parse_url($url, PHP_URL_PATH)) . '/';
+            $pathBase = parse_url($url, PHP_URL_SCHEME) . '://' . parse_url($url, PHP_URL_HOST) . dirname((string) parse_url($url, PHP_URL_PATH)) . '/';
         }
 
         $scheme = parse_url($pathBase, PHP_URL_SCHEME);

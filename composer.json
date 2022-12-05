@@ -1,5 +1,5 @@
 {
-    "name": "modolabs/readability.php",
+    "name": "modolabs/readability_php",
     "type": "library",
     "description": "A PHP port of Readability.js",
     "keywords": ["readability", "html"],

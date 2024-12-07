@@ -392,7 +392,7 @@ trait NodeTrait
      *
      * @return bool
      */
-    public function hasAncestorTag($tagName, $maxDepth = 3, callable $filterFn = null)
+    public function hasAncestorTag($tagName, $maxDepth = 3, ?callable $filterFn = null)
     {
         $depth = 0;
         $node = $this;
